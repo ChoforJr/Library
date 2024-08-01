@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="library.js" defer></script>
+</head>
+<body>
+    <div class="workSpace">
+        <div class="header">
+            <h1>Library</h1>
+        </div>
+        <div class="addBook">
+            <h1>Add Books</h1>
+            <form  class="addBookForm">
+                <ul>
+                  <li>
+                    <label for="bookName">Name of Book:</label>
+                    <input type="text" id="bookName" name="bookName" />
+                  </li>
+                  <li>
+                    <label for="authorName">Author of Book:</label>
+                    <input type="text" id="authorName" name="authorName" />
+                  </li>
+                  <li>
+                    <label for="pageNumber">Number of Pages:</label>
+                    <input type="number" id="pageNumber" name="pageNumber" />
+                  </li>
+                  <fieldset  class="readOrNot">
+                    <legend>Read or Not:</legend>
+                    <li>
+                        <input type="radio" id="read" name="readOrNot" value="read" checked/>
+                        <label for="read">Read</label>
+                      </li>
+                  
+                      <li>
+                        <input type="radio" id="notRead" name="readOrNot" value="notRead"/>
+                        <label for="notRead">Not Read</label>
+                      </li>
+                  </fieldset>
+                  <li class="addBookButton">
+                    <button type="button" id="addBookButton">Add New Book</button>
+                  </li>          
+                </ul>
+              </form>
+        </div>
+        <div class="books">
+            <h1>Book Collection</h1>
+            <div class="bookCollection">
+                <div>The Hobbit by J.R.R. Tolkien, 295 pages, not read yet</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
