@@ -17,39 +17,39 @@
             <form  class="addBookForm">
                 <ul>
                   <li>
-                    <label for="bookName">Name of Book:</label>
-                    <input type="text" id="bookName" name="bookName" />
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" />
                   </li>
                   <li>
-                    <label for="authorName">Author of Book:</label>
-                    <input type="text" id="authorName" name="authorName" />
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author"/>
                   </li>
                   <li>
-                    <label for="pageNumber">Number of Pages:</label>
-                    <input type="number" id="pageNumber" name="pageNumber" />
+                    <label for="pages">Pages:</label>
+                    <input type="number" id="pages" name="pages" />
                   </li>
-                  <fieldset  class="readOrNot">
-                    <legend>Read or Not:</legend>
-                    <li>
-                        <input type="radio" id="read" name="readOrNot" value="read" checked/>
-                        <label for="read">Read</label>
-                      </li>
-                  
-                      <li>
-                        <input type="radio" id="notRead" name="readOrNot" value="notRead"/>
-                        <label for="notRead">Not Read</label>
-                      </li>
-                  </fieldset>
+                  <li>
+                    <label for="notRead">Read or Not read yet:</label>
+                    <input type="text" id="readOrNot" name="readOrNot"/>
+                  </li>
                   <li class="addBookButton">
-                    <button type="button" id="addBookButton">Add New Book</button>
-                  </li>          
+                    <button type="button" id="addBookButton">Add Book</button>
+                  </li>     
+                  <li class="pushBookButton">
+                    <button type="button" id="pushBookButton">Push Book</button>
+                  </li>      
                 </ul>
               </form>
         </div>
         <div class="books">
             <h1>Book Collection</h1>
             <div class="bookCollection">
-                <div>The Hobbit by J.R.R. Tolkien, 295 pages, not read yet</div>
+                <div>
+                  <h2>The Hobbit by J.R.R.</h2>
+                  <p>by Tolkien</p>
+                  <p>295 pages</p>
+                  <button>not read yet</button>
+                </div>
             </div>
         </div>
     </div>
