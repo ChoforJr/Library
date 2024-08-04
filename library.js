@@ -9,21 +9,7 @@ let addBookButton = document.querySelector("#addBookButton");
 let pushBookButton = document.querySelector("#pushBookButton");
 
 
-const myLibrary = [      
- /* {
-    id:0,
-    title: 'Harry Porter',
-    author: 'J.K Rowley',
-    pages: 423,
-    readOrNot: 'not read yet'
-  },
-  {
-    id:1,
-    title: 'The All Father',
-    author: 'Odin',
-    pages: 1345,
-    readOrNot: 'read'
-  }*/];
+const myLibrary = [ /*... */];
 
 function Book(id,title,author,pages,readOrNot) {
   this.id = id;
@@ -47,12 +33,26 @@ function clearInput(){
   titleName.value = '';
   authorName.value = '';
   pagesNum.value = '';
-  readStatus.value = '';
+  readStatus.checked = false;
 }
 
-addBookButton.addEventListener("click", ()=>{
+addBookButton.addEventListener("click", (event)=>{
+  event.preventDefault();
+  
+  let readShow;
+  if(readStatus.checked){
+    readShow = "Read";
+  }else{ readShow = "Not read";}
+  
   let addId = myLibrary.length;
-  let newBook = new addBookToLibrary(addId,`${titleName.value}`,`${authorName.value}`,`${pagesNum.value}`,`${readStatus.value}`);
+
+  if (titleName.value.trim() === ''||authorName.value.trim() === ''||pagesNum.value.trim() === ''||readStatus.value.trim() === '') {
+    alert('Please fill out the input field!');
+    return;
+  }
+
+  let newBook = new addBookToLibrary(addId,`${titleName.value}`,`${authorName.value}`,`${pagesNum.value}`,`${readShow}`);
+
   newBook.info();
   clearInput();
 });
@@ -65,7 +65,7 @@ pushBookButton.addEventListener("click", ()=>{
     let pagesPush = document.createElement("p");
 
     let readStatusPush = document.createElement("button");
-    readStatusPush.classList.add("readCondition")
+    readStatusPush.classList.add("readCondition");
 
     let removeButtonPush = document.createElement("button");
     removeButtonPush.classList.add("remove");
@@ -91,6 +91,16 @@ pushBookButton.addEventListener("click", ()=>{
         bookCollection.removeChild(bookCard);
         //myLibrary.splice(i,1);
         //console.log(myLibrary[i]);
+      }
+    });
+
+    readStatusPush.addEventListener("click", ()=>{
+      if(myLibrary[i].id===i){
+        if(readStatusPush.textContent == "Read"){
+          readStatusPush.textContent = "Not read";
+        }else if (readStatusPush.textContent == "Not read") {
+          readStatusPush.textContent = "Read";
+        }
       }
     });
   }
