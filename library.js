@@ -11,23 +11,20 @@ let pushBookButton = document.querySelector("#pushBookButton");
 
 const myLibrary = [ /*... */];
 
-function Book(id,title,author,pages,readOrNot) {
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readOrNot = readOrNot;
+
+class addBookToLibrary {
+  constructor (id,title,author,pages,readOrNot) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readOrNot = readOrNot;
+  }
+  get info (){
+    return myLibrary.push({id:this.id,title:this.title,author:this.author,pages:this.pages,readOrNot:this.readOrNot});
+  }
 }
 
-function addBookToLibrary(id,title,author,pages,readOrNot) {
-  Book.call(this,id,title,author,pages,readOrNot);
-}
-
-Object.setPrototypeOf(addBookToLibrary.prototype, Book.prototype);
-
-addBookToLibrary.prototype.info = function () {
-  myLibrary.push({id:this.id,title:this.title,author:this.author,pages:this.pages,readOrNot:this.readOrNot});
-};
 
 function clearInput(){
   titleName.value = '';
@@ -51,9 +48,9 @@ addBookButton.addEventListener("click", (event)=>{
     return;
   }
 
-  let newBook = new addBookToLibrary(addId,`${titleName.value}`,`${authorName.value}`,`${pagesNum.value}`,`${readShow}`);
+  const newBook = new addBookToLibrary(addId,`${titleName.value}`,`${authorName.value}`,`${pagesNum.value}`,`${readShow}`);
 
-  newBook.info();
+  newBook.info;
   clearInput();
 });
 
